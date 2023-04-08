@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Random Bible Quote</title>
+    <style>
+        body{
+            background-color: #c9b08c;
+        }
+        #quote{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-align: center;
+            font-size: large;
+            font-style: bold;
+            position: absolute;
+            top: 10%;
+            color: aliceblue;
+            background-color: black;
+            border-radius: 15px;
+            margin-left: 10%;
+            margin-right: 10%;
+            padding-top: 5px;
+            padding-left: 5px;
+            padding-bottom: 5px;
+            padding-right: 5px;
+            top: 30%;
+
+        }
+        h1{
+            font-family: 'Courier New', Courier, monospace;
+            font-style: calc(20px);
+            text-align: center;
+            position: relative;
+            top: 90px;
+        }
+
+        /* Media queries for responsive design */
+        @media only screen and (min-width: 768px) {
+          #quote {
+            margin-left: 20%;
+            margin-right: 20%;
+            
+          }
+        }
+
+        @media only screen and (min-width: 1200px) {
+          #quote {
+            margin-left: 30%;
+            margin-right: 30%;
+
+          }
+        }
+    </style>
+  </head>
+  <body>
+    <h1>Random Bible Quote</h1>
+    <p id="quote"></p>
+    <script>
+      function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+
+      // Set the background color of the body to a random color
+      document.body.style.backgroundColor = getRandomColor();
+
+      fetch('https://labs.bible.org/api/?passage=random')
+        .then(response => response.text())
+        .then(data => {
+          const quote = data.replace(/<(?:.|\n)*?>/gm, '');
+          document.getElementById('quote').innerHTML = quote;
+        })
+        .catch(error => console.error(error));
+    </script>
+  </body>
+</html>
