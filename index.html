@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Bible Quote</title>
     <style>
         body{
@@ -18,10 +21,7 @@
             border-radius: 15px;
             margin-left: 10%;
             margin-right: 10%;
-            padding-top: 5px;
-            padding-left: 5px;
-            padding-bottom: 5px;
-            padding-right: 5px;
+            padding: 8px;
             top: 30%;
 
         }
@@ -32,24 +32,22 @@
             position: relative;
             top: 90px;
         }
+        @media only screen and (min-width: 428px) {
+          /* Mobile devices */
 
-        /* Media queries for responsive design */
-        @media only screen and (min-width: 768px) {
-          #quote {
-            margin-left: 20%;
-            margin-right: 20%;
-            
-          }
         }
 
+        
+
         @media only screen and (min-width: 1200px) {
+          /* Desktop devices */
           #quote {
             margin-left: 30%;
             margin-right: 30%;
 
           }
         }
-              @media (max-width:900px){
+        @media only screen and (max-width:900px){
           #quote{
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             text-align: center;
@@ -59,10 +57,10 @@
             color: aliceblue;
             background-color: black;
             border-radius: 15px;
-            font-size: 60px;
-            margin-top: 720px;
-            margin-left: 20px;
-            margin-right: 20px;
+            font-size: 24px;
+            margin-top: 0px;
+            margin-left: 0px;
+            margin-right: 10px;
             padding:5px ;
 
         }
@@ -71,6 +69,7 @@
         }
         
     }
+      
       
     </style>
   </head>
@@ -97,6 +96,7 @@
           document.getElementById('quote').innerHTML = quote;
         })
         .catch(error => console.error(error));
+
     </script>
   </body>
 </html>
